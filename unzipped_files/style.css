@@ -1,0 +1,302 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('img/wall.jpg'); /* Ganti dengan path gambar yang diinginkan */
+    background-size: cover; /* Mengatur gambar agar menutupi seluruh latar belakang */
+    background-position: center; /* Mengatur posisi gambar di tengah */
+    height: 100vh; /* Mengatur tinggi 100% dari viewport */
+    overflow: hidden; /* Menyembunyikan scrollbar */
+}
+
+.container {
+    display: flex;
+    width: 95%;
+    max-width: 1200px; /* Opsional: batasi lebar maksimum */
+    height: 90vh;
+    background-color: rgba(255, 255, 255, 0); /* Warna latar belakang dengan transparansi */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Memusatkan elemen secara horizontal */
+    position: relative; /* Menjaga elemen dalam posisi relative */
+    top: 50%; /* Memindahkan ke bawah */
+    transform: translateY(-50%); /* Menggeser kembali ke atas agar tepat di tengah */
+}
+
+.dashboard {
+    width: 35%;
+    background-color: #d3eaf3;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1); /* Tambahkan bayangan untuk tampilan yang lebih baik */
+}
+
+.dashboard-header {
+    text-align: center;
+}
+
+.dashboard-header h2 {
+    color: #23495c;
+}
+
+.user-info {
+    text-align: center;
+}
+
+.user-info h2 {
+    margin-top: 10px;
+    color: #23495c;
+}
+
+.user-details p {
+    color: #23495c;
+    margin: 5px 0;
+}
+
+.avatar img {
+    width: 80px;
+    border-radius: 50%;
+}
+
+.menu {
+    margin-top: 30px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.menu-item a {
+    text-decoration: none; /* Menghilangkan garis bawah */
+    color: inherit; /* Mengambil warna dari elemen induk */
+}
+
+.menu-item a:visited {
+    color: inherit; /* Warna yang sama untuk link yang sudah dikunjungi */
+}
+
+.menu-item a:hover {
+    color: #f1c40f; /* Mengubah warna saat hover, opsional */
+}
+
+.menu-item a:active {
+    color: inherit; /* Menghilangkan warna saat link di klik */
+}
+
+.menu-item i {
+    font-size: 24px;
+    color: #23495c;
+    margin-right: 10px;
+}
+
+.menu-item span {
+    color: #23495c;
+    font-size: 18px;
+}
+
+/* Layer 2: Chatbot */
+.chatbot {
+    width: 65%;
+    background-color: rgba(66, 68, 90, 0); /* Warna dengan transparansi */
+    backdrop-filter: blur(5px); /* Blur efek */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px; /* Tambahkan border-radius jika diinginkan */
+    
+}
+
+.chat-window {
+    scrollbar-width: thin; /* Membuat scrollbar lebih ramping */
+    scrollbar-color: #888 #f4f4f4; /* Warna scrollbar dan latar belakang */
+}
+
+/* Pengaturan untuk scrollbar di browser berbasis WebKit seperti Chrome */
+.chat-window::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-window::-webkit-scrollbar-thumb {
+    background-color: #888; 
+    border-radius: 10px;
+}
+
+.chat-window::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+.message {
+    display: flex;
+    justify-content: flex-start; /* Default to left for bot messages */
+    margin-bottom: 10px; /* Mengurangi jarak antar pesan */
+}
+
+.message-bubble {
+    padding: 8px; /* Mengurangi padding */
+    border-radius: 15px;
+    max-width: 90%;
+}
+
+/* Style for Bot Messages */
+.message.bot .message-bubble {
+    background-color: #e0f7fa; /* Light blue for bot messages */
+}
+
+/* Style for User Messages */
+.message.user {
+    justify-content: flex-end; /* Align user messages to the right */
+}
+
+.message.user .message-bubble {
+    background-color: #ffffff; /* White background for user messages */
+    border: 1px solid #ccc; /* Optional: add a light border */
+}
+
+.chat-input {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #e0e0e0;
+    padding: 10px;
+}
+
+.chat-input input {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    outline: none;
+    background-color: #f3f3f3;
+}
+
+.chat-input i {
+    margin-left: 10px;
+    color: #5B69FF;
+    cursor: pointer;
+}
+
+.time {
+    display: block; /* Pastikan time ditampilkan sebagai block */
+    font-size: 0.8em; /* Ukuran font lebih kecil untuk jam */
+    color: #888; /* Warna abu-abu untuk jam */
+    margin-top: 5px; /* Jarak atas untuk memisahkan dari bubble */
+}
+
+.chat-image {
+    max-width: 100%; /* Pastikan gambar tidak melebihi lebar bubble */
+    border-radius: 10px; /* Tambahkan sudut melengkung untuk gambar */
+    margin-top: 5px; /* Jarak antara bubble dan gambar */
+}
+
+.welcome-message {
+    text-align: center; /* Menyelaraskan teks di tengah */
+    margin-bottom: 20px; /* Memberi jarak di bawah */
+    background-color : #d3eaf3;
+    width: 70%;
+    padding: 10px;
+    border-radius: 16px;
+}
+
+.welcome-image {
+    width: 100%; /* Sesuaikan lebar gambar */
+    /*height: 100px; /* Sesuaikan tinggi gambar */
+    /*border-radius: 50%; /* Membuat gambar menjadi bulat */
+   /* object-fit: cover; /* Memastikan gambar tidak terdistorsi */
+    border-radius: 16px;
+    margin-bottom: 10px; /* Memberi jarak di bawah gambar */
+}
+
+.welcome-caption {
+    font-size: 16px; /* Ukuran font untuk caption */
+    color: #333; /* Warna teks */
+}
+
+/* Style untuk modal */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow: hidden;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Tambahkan animasi untuk pesan chat */
+.message {
+    display: flex;
+    justify-content: flex-start; /* Default to left for bot messages */
+    margin-bottom: 10px;
+    opacity: 0; /* Atur opacity ke 0 untuk efek fade-in */
+}
+
+.message-bubble {
+    padding: 8px;
+    border-radius: 15px;
+    max-width: 90%;
+}
+
+.message.user {
+    justify-content: flex-end;
+}
+
+.message-bubble.user {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+}
+
+/* Chat window overflow auto */
+.chat-window {
+    height: 100%;
+    overflow-y: auto;
+}
+
+/* Scroll otomatis saat pesan baru masuk */
+.chat-window::-webkit-scrollbar {
+    width: 5px;
+}
+
+.chat-window::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
+
+.chat-window::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
