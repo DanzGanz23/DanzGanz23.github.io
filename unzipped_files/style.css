@@ -17,7 +17,7 @@ body {
     display: flex;
     width: 95%;
     max-width: 1200px; /* Opsional: batasi lebar maksimum */
-    height: 90vh;
+    height: 75vh;
     background-color: rgba(255, 255, 255, 0); /* Warna latar belakang dengan transparansi */
     border-radius: 20px;
     overflow: hidden;
