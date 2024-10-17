@@ -105,3 +105,51 @@ document.getElementById('playButton').addEventListener('click', function() {
   var audio = document.getElementById('audio');
   audio.play();
 });
+
+// Fungsi untuk membuka full screen
+function openFullscreen() {
+    let elem = document.documentElement;
+    
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { // Firefox
+        elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { // Chrome, Safari, Opera
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { // IE/Edge
+        elem.msRequestFullscreen();
+    }
+}
+
+// Menampilkan SweetAlert untuk izin full-screen
+Swal.fire({
+    title: 'Ingin menggunakan mode layar penuh?',
+    text: "Untuk pengalaman yang lebih baik, aktifkan mode full-screen.",
+    icon: 'info',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Ya, aktifkan!',
+    cancelButtonText: 'Tidak'
+}).then((result) => {
+    if (result.isConfirmed) {
+        openFullscreen(); // Memasuki full screen jika user menyetujuinya
+    }
+});
+
+// Menambahkan listener untuk prompt "Add to Home Screen"
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();  // Mencegah prompt langsung tampil
+    Swal.fire({
+        title: 'Tambahkan ke Home Screen?',
+        text: 'Akses cepat dengan menambahkan aplikasi ke layar utama!',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Tambahkan',
+        cancelButtonText: 'Tidak, terima kasih'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            e.prompt();  // Menampilkan prompt asli untuk Add to Home Screen
+        }
+    });
+});
